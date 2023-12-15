@@ -1,3 +1,9 @@
+# Consumindo api com reactjs
+# utilizei a biblioteca axios 
+# todas as urls estão em localhost
+# está api insere, lista, atualiza e deleta dados do banco de dados mysql
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
