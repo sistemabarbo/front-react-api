@@ -1,5 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+
 export default function ListUser() {
 
     //STATE PARA RECEBER DADOS VINDOS DA API 
@@ -10,29 +12,31 @@ const [users, setUsers] = useState([]);
     }, []);
 
     function getUsers() {
-
     
-    axios.get('http://localhost:80/api/users').then(function(response) {
+    axios.get("http://localhost/api/index.php/").then(function(response) {
         console.log(response.data);
-        setUsers(response.data)
+        setUsers(response.data);
 
-    })
+    });
 }
 
 // FUNÇÃO PARA REMOÇÃO DE DADOS
 
-function deleteUser(id) {
-    axios.delete('http://localhost/api/${id}/delete').then(function(response){
-        console,log(response.data);
-        getUsers();
-    })
+const deleteUser = (id) => {
+    axios.delete(`http://localhost/api/index.php/${id}/delete`).then(function(response){
+        console.log(response.data);
+        getUsers(response.data);
+    });
 }
 
 // RETORNANDO LISTA DE DADOS COLOCANDO EM UMA TABELA DINÂMICA
 
     return (
         <div>
+           
         <h1>List Users</h1>
+        
+        
 <table>
     <thead>
         <tr>
@@ -45,10 +49,10 @@ function deleteUser(id) {
         </tr>
     </thead>
     <tbody>
-        {users.map((user, key) =>
+    {users.map((user, key) => (
          <tr key={key}>
          <td>{user.id}</td>
-         <td>{user.name}</td>
+         <td>{user.nome}</td>
          <td>{user.email}</td>
          <td>{user.telefone}</td>
          <td>
@@ -56,7 +60,10 @@ function deleteUser(id) {
             <button onClick={() => deleteUser(user.id)}>Delete</button>
          </td>
      </tr>
-        )}
+    ))
+   
+  
+    }
        
     </tbody>
 </table>
