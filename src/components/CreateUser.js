@@ -19,7 +19,7 @@ export default function CreateUser(){
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost/api', inputs).then(function(response) {
+        axios.post('http://localhost/api/index.php', inputs).then(function(response) {
             console.log(response.data);
             Navigate('/');
         });
@@ -40,7 +40,7 @@ export default function CreateUser(){
                 <label>Name: </label>
                 </th>
                 <td>
-                <input type="text" name="name" onChange={handleChange}/>
+                <input type="text" name="nome" onChange={handleChange}/>
                 </td>
             </tr>
 
@@ -49,7 +49,7 @@ export default function CreateUser(){
                 <label>Email: </label>
                 </th>
                 <td>
-                <input type="text" name="email"/>
+                <input type="text" name="email" onChange={handleChange}/>
                 </td>
             </tr>
             
@@ -58,7 +58,7 @@ export default function CreateUser(){
                 <label>Telefone: </label>
                 </th>
                 <td>
-                <input type="text" name="telefone"/>
+                <input type="text" name="telefone" onChange={handleChange}/>
                 </td>
             </tr>
             <tr>
