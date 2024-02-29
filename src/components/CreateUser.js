@@ -19,7 +19,7 @@ export default function CreateUser(){
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost/api/index.php', inputs).then(function(response) {
+        axios.post('https://apirestfullteste.000webhostapp.com, inputs).then(function(response) {
             console.log(response.data);
             Navigate('/');
         });
