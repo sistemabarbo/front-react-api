@@ -11,9 +11,9 @@ const [users, setUsers] = useState([]);
         getUsers();
     }, []);
 
-    function getUsers() {
+     function getUsers() {
     
-    axios.get("https://apirestfullteste.000webhostapp.com/).then(function(response) {
+    axios.get('https://apirestfullteste.000webhostapp.com/').then(function(response) {
         console.log(response.data);
         setUsers(response.data);
 
