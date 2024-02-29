@@ -18,7 +18,7 @@ export default function EditUser(){
 
 function getUsers() {
 
-axios.get(`http://localhost/api/index.php/${id}`).then(function(response) {
+axios.get(`https://apirestfullteste.000webhostapp.com/${id}`).then(function(response) {
     console.log(response.data);
     setInputs(response.data);
 
@@ -35,7 +35,7 @@ axios.get(`http://localhost/api/index.php/${id}`).then(function(response) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.put(`http://localhost/api/index.php/${id}/edit`, inputs).then(function(response) {
+        axios.put(`https://apirestfullteste.000webhostapp.com/${id}/edit`, inputs).then(function(response) {
             console.log(response.data);
             Navigate('/');
         });
